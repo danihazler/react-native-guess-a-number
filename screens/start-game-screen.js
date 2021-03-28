@@ -13,10 +13,27 @@ import { Input } from '../components/input';
 
 export const StartGameScreen = () => {
     const [enteredValue, setEnteredValeu] = useState('');
+    const [confirmed, setConfirmed] = useState(false);
+    const [selectedNumber, setSelectedNumber] = useState(null);
 
     const handleOnChangeValue = (value) => {
         const number = value.replace(/[^0-9]/g, '');
         setEnteredValeu(number);
+    }
+
+    const handleResetInput = () => {
+        setEnteredValeu('');
+        setConfirmed(false);
+    }
+
+    const handleConfirmation = () => {
+        const number = parseInt(enteredValue);
+
+        if(number === NaN || number < 0 || number > 99) return;
+
+        setConfirmed(true);
+        setSelectedNumber(number);
+        setEnteredValeu('');
     }
 
     return (
@@ -35,10 +52,18 @@ export const StartGameScreen = () => {
                     />
                     <View style={styles.buttons}>
                         <View style={styles.button}>
-                            <Button title="Reset" color={Colors.secondary} onPress={() => {}} />
+                            <Button 
+                                title="Reset" 
+                                color={Colors.secondary} 
+                                onPress={handleResetInput} 
+                            />
                         </View>
                         <View style={styles.button}>
-                            <Button title="Confirm" color={Colors.primary} onPress={() => {}} />
+                            <Button 
+                                title="Confirm" 
+                                color={Colors.primary} 
+                                onPress={handleConfirmation} 
+                            />
                         </View>
                     </View>
                 </Card>
