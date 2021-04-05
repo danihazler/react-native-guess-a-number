@@ -1,16 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Colors from '../../constants/colors';
 import { Card } from '../card';
 
 export const SelectedNumber = ({ value }) => {
     return (
         <Card style={styles.card}>
-            <Text>You selected</Text>
             <View style={styles.numberWrapper}>
                 <Text style={styles.number}>{value}</Text>
             </View>
-            <Button title='START GAME' />
         </Card>
     )
 }
@@ -36,5 +34,4 @@ const styles = StyleSheet.create({
         color: Colors.secondary,
         fontSize: 20
     }
-
 })

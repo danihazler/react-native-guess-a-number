@@ -11,9 +11,9 @@ import {
 import Colors from '../constants/colors';
 import { Card } from '../components/card';
 import { Input } from '../components/input';
-import { SelectedNumber } from '../components/selected-number';
+import { UserNumber } from '../components/user-number';
 
-export const StartGameScreen = () => {
+export const StartGameScreen = ({ handleStartGame }) => {
     const [enteredValue, setEnteredValeu] = useState('');
     const [confirmed, setConfirmed] = useState(false);
     const [selectedNumber, setSelectedNumber] = useState(null);
@@ -75,7 +75,12 @@ export const StartGameScreen = () => {
                         </View>
                     </View>
                 </Card>
-                {confirmed && <SelectedNumber value={selectedNumber} />}
+                {confirmed && 
+                    <UserNumber 
+                        handleStartGame={handleStartGame}
+                        value={selectedNumber} 
+                    />
+                }
             </View>
         </TouchableWithoutFeedback>
     )
