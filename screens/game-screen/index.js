@@ -1,13 +1,21 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, Button, Alert } from 'react-native';
 import { guessNumber } from '../../modules/guess-number';
 import { SelectedNumber } from '../../components/selected-number';
 import { styles } from './styles';
 
-export const GameScreen = ({ userChoice }) => {
+export const GameScreen = ({ userChoice, setIsTheGameOver, handleGameOver }) => {
     const[currentGuess, setCurrentGuess]= useState(guessNumber(1, 100, userChoice));
+    const[rounds, setRounds] = useState(0);
     const currentLower = useRef(1);
     const currentGreater = useRef(100);
+
+    useEffect(() => {
+        if(currentGuess === userChoice) {
+            setIsTheGameOver(true);
+            handleGameOver(rounds);
+        };
+    },[currentGuess]);
 
     const handleGuess = (direction) => {
         if(
@@ -29,8 +37,8 @@ export const GameScreen = ({ userChoice }) => {
             currentGreater.current, 
             currentGuess
         );
-
         setCurrentGuess(nextNumberGuess);
+        setRounds(currentRounds => currentRounds + 1);
     }
 
     return (

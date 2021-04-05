@@ -26,7 +26,7 @@ export const StartGameScreen = ({ handleStartGame }) => {
     const handleResetInput = () => {
         setEnteredValeu('');
         setConfirmed(false);
-    }
+    };
 
     const handleConfirmation = () => {
         const number = parseInt(enteredValue);
