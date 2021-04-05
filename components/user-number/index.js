@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-import Colors from '../../constants/colors';
+import { Text, Button } from 'react-native';
 import { SelectedNumber } from '../selected-number';
 import { Card } from '../card';
+import { styles } from './styles';
 
 export const UserNumber = ({ handleStartGame, value }) => {
     return (
@@ -12,13 +12,4 @@ export const UserNumber = ({ handleStartGame, value }) => {
             <Button title='START GAME' onPress={() => handleStartGame(value)} />
         </Card>
     )
-}
-
-const styles = StyleSheet.create({
-    card: {
-        marginVertical: 10,
-        width: 300,
-        maxWidth: '80%',
-        alignItems: 'center'
-    }
-})
+};

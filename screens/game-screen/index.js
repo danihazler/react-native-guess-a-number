@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, Button, Alert, StyleSheet } from 'react-native';
-import { SelectedNumber } from '../components/selected-number';
-import { guessNumber } from '../modules/guess-number';
+import { View, Text, Button, Alert } from 'react-native';
+import { guessNumber } from '../../modules/guess-number';
+import { SelectedNumber } from '../../components/selected-number';
+import { styles } from './styles';
 
 export const GameScreen = ({ userChoice }) => {
     const[currentGuess, setCurrentGuess]= useState(guessNumber(1, 100, userChoice));
@@ -53,21 +54,3 @@ export const GameScreen = ({ userChoice }) => {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    screen: {
-        alignItems: 'center',
-        marginVertical: 10,
-        padding: 20
-        
-    },
-    buttons: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        width: '100%',
-        maxWidth: '80%'
-    },
-    button: {
-        width: '45%'
-    }
-})

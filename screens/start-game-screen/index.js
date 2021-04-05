@@ -3,15 +3,15 @@ import {
     View, 
     Text, 
     Button,
-    StyleSheet,
     TouchableWithoutFeedback,
     Keyboard,
     Alert
 } from 'react-native';
-import Colors from '../constants/colors';
-import { Card } from '../components/card';
-import { Input } from '../components/input';
-import { UserNumber } from '../components/user-number';
+import Colors from '../../constants/colors';
+import { Card } from '../../components/card';
+import { Input } from '../../components/input';
+import { UserNumber } from '../../components/user-number';
+import { styles } from './styles';
 
 export const StartGameScreen = ({ handleStartGame }) => {
     const [enteredValue, setEnteredValeu] = useState('');
@@ -84,34 +84,4 @@ export const StartGameScreen = ({ handleStartGame }) => {
             </View>
         </TouchableWithoutFeedback>
     )
-}
-
-const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        padding: 10,
-        alignItems: 'center',
-    },
-    card: {
-        width: 300,
-        maxWidth: '80%',
-        alignItems: 'center',
-    },
-    buttons: {
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'space-between',
-        paddingHorizontal: 15
-    },
-    button: {
-        width: '45%'
-    },
-    title: {
-        fontSize: 20,
-        marginVertical: 10,
-    },
-    input: {
-        width: '20%',
-        textAlign: 'center'
-    }
-});
+};
